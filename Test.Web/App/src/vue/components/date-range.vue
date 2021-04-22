@@ -1,15 +1,28 @@
 ﻿<template>
-    <div style="width:300px;" class="float-right mt-4">
+    <div class="float-right" style="width:300px; border: 0.1rem solid silver; width: 275px; padding: 1rem; margin-top: -0.5rem; border-radius: 0.5rem;">
         <div class="input-group mb-3">
-            <input type="datetime" class="form-control" placeholder="From Date" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <date-picker>
+                <template v-slot="{ inputValue, inputEvents }">
+                    <input v-on="inputEvents" type="datetime" class="form-control" placeholder="From Date" aria-label="Recipient's username" aria-describedby="button-addon2">
+                </template>
+            </date-picker>
+            
             <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><span class="fa fa-calendar-alt"></span></button>
+                <div class="btn btn-outline-secondary">
+                    <span class="fa fa-calendar-alt"></span>
+                </div>
             </div>
         </div>
         <div class="input-group mb-3">
-            <input type="datetime" class="form-control" placeholder="To Date" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <date-picker>
+                <template v-slot="{ inputValue, inputEvents }">
+                    <input v-on="inputEvents" type="datetime" class="form-control" placeholder="To Date" aria-label="Recipient's username" aria-describedby="button-addon2">
+                </template>
+            </date-picker>
             <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><span class="fa fa-calendar-alt"></span></button>
+                <div class="btn btn-outline-secondary">
+                    <span class="fa fa-calendar-alt"></span>
+                </div>
             </div>
         </div>
     </div>
