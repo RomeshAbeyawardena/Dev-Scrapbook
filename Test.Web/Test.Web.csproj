@@ -5,4 +5,22 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Include="App\src\webfonts\fa-brands-400.eot" />
+    <Content Include="App\src\webfonts\fa-brands-400.svg" />
+    <Content Include="App\src\webfonts\fa-brands-400.ttf" />
+    <Content Include="App\src\webfonts\fa-brands-400.woff" />
+    <Content Include="App\src\webfonts\fa-brands-400.woff2" />
+    <Content Include="App\src\webfonts\fa-regular-400.eot" />
+    <Content Include="App\src\webfonts\fa-regular-400.svg" />
+    <Content Include="App\src\webfonts\fa-regular-400.ttf" />
+    <Content Include="App\src\webfonts\fa-regular-400.woff" />
+    <Content Include="App\src\webfonts\fa-regular-400.woff2" />
+    <Content Include="App\src\webfonts\fa-solid-900.eot" />
+    <Content Include="App\src\webfonts\fa-solid-900.svg" />
+    <Content Include="App\src\webfonts\fa-solid-900.ttf" />
+    <Content Include="App\src\webfonts\fa-solid-900.woff" />
+    <Content Include="App\src\webfonts\fa-solid-900.woff2" />
+  </ItemGroup>
+
 </Project>

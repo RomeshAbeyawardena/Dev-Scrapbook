@@ -31,7 +31,7 @@ namespace Test.WebApi.Features.Sensors
                 : "[Tags] = @tags AND";
 
             var query = $"select [Id], [DisplayName], [SerialNumber], [Tags] from [sensors].[DeviceRegistrations] where {optionalWhereQuery} [IsEnabled] = 1";
-            Console.WriteLine(query);
+            //Console.WriteLine(query);
             var sensors = await dbConnection.QueryAsync<Models.Sensor>(query,
                 new { tags = request.Tag });
 

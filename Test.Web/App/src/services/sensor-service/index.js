@@ -21,9 +21,6 @@ const service = {
         return new Promise((resolve, reject) => {
             var url = apiUrl + sensorResourceName + "/" + sensorId;
 
-            console.log(fromDate.toISOString());
-            console.log(toDate.toISOString());
-
             if (fromDate) {
                 url = url + "/" + fromDate.toISOString();
 

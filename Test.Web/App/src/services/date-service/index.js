@@ -1,6 +1,10 @@
 ﻿import Moment from 'moment';
 import gH from '../general';
 const service = {
+    offSetMode: {
+        add: "add",
+        subtract: "subtract"
+    },
     getDate: function(args) {
         
         let date = new Moment().utc();
@@ -25,10 +29,10 @@ const service = {
         if (!gH.isNullOrUndefined(args.offSet)) {
             var offSet = args.offSet;
 
-            if (offSet.mode === 'add') {
+            if (offSet.mode === this.offSetMode.add) {
                 date.add(offSet.value, offSet.period);
             }
-            else if (offSet.mode == 'subtract') {
+            else if (offSet.mode == this.offSetMode.subtract) {
                 date.subtract(offSet.value, offSet.period);
             }
         }
@@ -39,6 +43,14 @@ const service = {
 
         if (!gH.isNullOrUndefined(args.minute)) {
             date = date.minute(args.minute);
+        }
+
+        if (!gH.isNullOrUndefined(args.second)) {
+            date = date.second(args.second);
+        }
+
+        if (!gH.isNullOrUndefined(args.millisecond)) {
+            date = date.millisecond(args.millisecond);
         }
 
         return date.toDate();
