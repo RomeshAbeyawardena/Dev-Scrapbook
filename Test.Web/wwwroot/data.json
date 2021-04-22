@@ -1,0 +1,577 @@
+[
+  {
+    "SensorId": "temp",
+    "RawValue": 26.35,
+    "Timestamp": "2021-04-20T15:14:40Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.8,
+    "Timestamp": "2021-04-20T15:12:51Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 20.5,
+    "Timestamp": "2021-04-20T15:10:32Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.7,
+    "Timestamp": "2021-04-20T15:10:13Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.3,
+    "Timestamp": "2021-04-20T14:59:49Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.85,
+    "Timestamp": "2021-04-20T14:58:46Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 20.5,
+    "Timestamp": "2021-04-20T14:56:51Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.7,
+    "Timestamp": "2021-04-20T14:55:31Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.35,
+    "Timestamp": "2021-04-20T14:44:58Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.8,
+    "Timestamp": "2021-04-20T14:44:41Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 20.55,
+    "Timestamp": "2021-04-20T14:43:10Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.7,
+    "Timestamp": "2021-04-20T14:40:49Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.8,
+    "Timestamp": "2021-04-20T14:30:36Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.3,
+    "Timestamp": "2021-04-20T14:30:07Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 20.6,
+    "Timestamp": "2021-04-20T14:29:29Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.7,
+    "Timestamp": "2021-04-20T14:26:08Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.9,
+    "Timestamp": "2021-04-20T14:16:31Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 20.7,
+    "Timestamp": "2021-04-20T14:15:49Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.3,
+    "Timestamp": "2021-04-20T14:15:15Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.75,
+    "Timestamp": "2021-04-20T14:11:22Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.9,
+    "Timestamp": "2021-04-20T14:02:27Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 20.7,
+    "Timestamp": "2021-04-20T14:02:08Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.3,
+    "Timestamp": "2021-04-20T14:00:24Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.65,
+    "Timestamp": "2021-04-20T13:56:44Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 20.8,
+    "Timestamp": "2021-04-20T13:48:27Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.85,
+    "Timestamp": "2021-04-20T13:48:22Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.35,
+    "Timestamp": "2021-04-20T13:45:33Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.6,
+    "Timestamp": "2021-04-20T13:41:58Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 20.95,
+    "Timestamp": "2021-04-20T13:34:47Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.75,
+    "Timestamp": "2021-04-20T13:34:17Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.35,
+    "Timestamp": "2021-04-20T13:30:42Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.4,
+    "Timestamp": "2021-04-20T13:27:19Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 20.8,
+    "Timestamp": "2021-04-20T13:21:06Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.65,
+    "Timestamp": "2021-04-20T13:20:12Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.3,
+    "Timestamp": "2021-04-20T13:15:50Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.35,
+    "Timestamp": "2021-04-20T13:12:37Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 20.9,
+    "Timestamp": "2021-04-20T13:07:26Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.55,
+    "Timestamp": "2021-04-20T13:06:07Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.3,
+    "Timestamp": "2021-04-20T13:00:59Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.2,
+    "Timestamp": "2021-04-20T12:57:54Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 20.9,
+    "Timestamp": "2021-04-20T12:53:46Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.4,
+    "Timestamp": "2021-04-20T12:52:02Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.3,
+    "Timestamp": "2021-04-20T12:46:08Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.1,
+    "Timestamp": "2021-04-20T12:43:12Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 20.9,
+    "Timestamp": "2021-04-20T12:40:06Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.2,
+    "Timestamp": "2021-04-20T12:37:57Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.3,
+    "Timestamp": "2021-04-20T12:31:17Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.9,
+    "Timestamp": "2021-04-20T12:28:28Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 20.8,
+    "Timestamp": "2021-04-20T12:26:26Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.05,
+    "Timestamp": "2021-04-20T12:23:51Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.3,
+    "Timestamp": "2021-04-20T12:16:26Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.8,
+    "Timestamp": "2021-04-20T12:13:45Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 20.7,
+    "Timestamp": "2021-04-20T12:12:46Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.95,
+    "Timestamp": "2021-04-20T12:09:45Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.3,
+    "Timestamp": "2021-04-20T12:01:34Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 20.5,
+    "Timestamp": "2021-04-20T11:59:05Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.7,
+    "Timestamp": "2021-04-20T11:59:01Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.8,
+    "Timestamp": "2021-04-20T11:55:39Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.3,
+    "Timestamp": "2021-04-20T11:46:43Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.3,
+    "Timestamp": "2021-04-20T11:46:43Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 20.4,
+    "Timestamp": "2021-04-20T11:45:24Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 20.4,
+    "Timestamp": "2021-04-20T11:45:24Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.6,
+    "Timestamp": "2021-04-20T11:44:18Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.6,
+    "Timestamp": "2021-04-20T11:44:18Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.7,
+    "Timestamp": "2021-04-20T11:41:33Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.3,
+    "Timestamp": "2021-04-20T11:31:51Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 20.15,
+    "Timestamp": "2021-04-20T11:31:45Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.5,
+    "Timestamp": "2021-04-20T11:29:33Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.6,
+    "Timestamp": "2021-04-20T11:27:26Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 20.05,
+    "Timestamp": "2021-04-20T11:18:05Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.3,
+    "Timestamp": "2021-04-20T11:17:01Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.55,
+    "Timestamp": "2021-04-20T11:13:20Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.75,
+    "Timestamp": "2021-04-20T11:04:22Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.35,
+    "Timestamp": "2021-04-20T11:02:09Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.35,
+    "Timestamp": "2021-04-20T11:02:09Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.3,
+    "Timestamp": "2021-04-20T11:00:04Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.3,
+    "Timestamp": "2021-04-20T11:00:04Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.35,
+    "Timestamp": "2021-04-20T10:59:13Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.35,
+    "Timestamp": "2021-04-20T10:59:13Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.5,
+    "Timestamp": "2021-04-20T10:50:40Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.3,
+    "Timestamp": "2021-04-20T10:47:17Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.2,
+    "Timestamp": "2021-04-20T10:45:19Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.3,
+    "Timestamp": "2021-04-20T10:45:06Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.4,
+    "Timestamp": "2021-04-20T10:36:56Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.35,
+    "Timestamp": "2021-04-20T10:32:26Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.2,
+    "Timestamp": "2021-04-20T10:30:59Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.1,
+    "Timestamp": "2021-04-20T10:30:34Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.2,
+    "Timestamp": "2021-04-20T10:23:13Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.35,
+    "Timestamp": "2021-04-20T10:17:35Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.15,
+    "Timestamp": "2021-04-20T10:16:51Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 17.95,
+    "Timestamp": "2021-04-20T10:15:49Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.15,
+    "Timestamp": "2021-04-20T10:09:29Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18,
+    "Timestamp": "2021-04-20T10:02:44Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.35,
+    "Timestamp": "2021-04-20T10:02:44Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 17.85,
+    "Timestamp": "2021-04-20T10:01:03Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19.1,
+    "Timestamp": "2021-04-20T09:55:45Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 17.85,
+    "Timestamp": "2021-04-20T09:48:56Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.35,
+    "Timestamp": "2021-04-20T09:47:53Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 17.8,
+    "Timestamp": "2021-04-20T09:46:16Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19,
+    "Timestamp": "2021-04-20T09:42:01Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 17.7,
+    "Timestamp": "2021-04-20T09:34:47Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.35,
+    "Timestamp": "2021-04-20T09:33:02Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 17.65,
+    "Timestamp": "2021-04-20T09:31:30Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 19,
+    "Timestamp": "2021-04-20T09:28:17Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 17.6,
+    "Timestamp": "2021-04-20T09:20:26Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.3,
+    "Timestamp": "2021-04-20T09:18:11Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 17.5,
+    "Timestamp": "2021-04-20T09:16:43Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.9,
+    "Timestamp": "2021-04-20T09:14:35Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 17.55,
+    "Timestamp": "2021-04-20T09:06:17Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.3,
+    "Timestamp": "2021-04-20T09:03:19Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 17.35,
+    "Timestamp": "2021-04-20T09:01:57Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 18.8,
+    "Timestamp": "2021-04-20T09:00:50Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 17.4,
+    "Timestamp": "2021-04-20T08:52:22Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 26.35,
+    "Timestamp": "2021-04-20T08:48:28Z"
+  },
+  {
+    "SensorId": "temp",
+    "RawValue": 17.25,
+    "Timestamp": "2021-04-20T08:47:10Z"
+  }
+]

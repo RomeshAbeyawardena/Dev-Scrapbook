@@ -1,0 +1,62 @@
+﻿<!-- Sensor Chart-->
+<template>
+    <div>
+        <div v-if="loading" class="text-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div v-if="!loading">
+            <div class="chart" :id="chartId"></div>
+        </div>
+    </div>
+</template>
+
+<script lang="js">
+    import Vue from "vue";
+    import RandomStringGenerator from "../../services/random-string-generator";
+    import SensorService from '../../services/sensor-service';
+    import ChartService from '../../services/chart-service';
+
+    export default Vue.component("sensor-chart", {
+        props: ['sensorId', 'sensorFilters', 'sensorType'],
+        data: function () {
+            return {
+                loading: true,
+                id: this.sensorId,
+                filters: this.sensorFilters,
+                type: this.sensorType,
+                chartId: null,
+            }
+        },
+        watch: {
+            sensorFilters: {
+                handler: function (newValue) {
+                    console.log(newValue);
+                    this.loading = true;
+                    this.filters = newValue;
+                    this.renderChart();
+                },
+                deep: true
+            }
+        },
+        methods: {
+            renderChart: function () {
+                SensorService
+                    .getSensorReadings(this.id, this.type, this.filters.fromDate, this.filters.toDate)
+                    .then(readings => {
+                        this.loading = false;
+                        window.setTimeout(() => ChartService.renderChart(this.chartId, readings), 500);
+                    });
+            }
+        },
+        created: function () {
+            this.chartId = RandomStringGenerator.getRandomString(30);
+        },
+        mounted: function () {
+            this.$nextTick(function () {
+                this.renderChart();
+            });
+        }
+    });
+</script>
