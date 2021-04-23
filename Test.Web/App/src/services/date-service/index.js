@@ -5,9 +5,12 @@ const service = {
         add: "add",
         subtract: "subtract"
     },
-    getDate: function(args) {
-        
-        let date = new Moment().utc();
+    getDate: function(args, date) {
+
+        if (!date)
+            date = new Moment().utc();
+        else
+            date = new Moment(date).utc();
         
         if (!args) {
             console.warn("No args provided");

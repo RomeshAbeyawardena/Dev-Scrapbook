@@ -3,12 +3,11 @@
     <div>
         <div class="card" v-if="filters.selectedSensor">
             <div class="card-body">
-                <button class="btn btn-secondary" v-on:click="resetView">Go back to overview</button>
+                <button class="btn btn-secondary mb-4" v-on:click="resetView">Go back to overview</button>
                 <h5>{{ filters.selectedSensor.displayName }}</h5>
                 <div class="row">
                     <div class="col-sm-12 col-md-5 col-lg-4 col-xl-3"
                          v-for="sensorType in filters.selectedSensor.types">
-                        {{ sensorType | friendlyName('sensorType') }}
                         <sensor-card :type="sensorType" :sensor="filters.selectedSensor" :sensor-filters="filters"></sensor-card>
                     </div>
                 </div>

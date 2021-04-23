@@ -14,9 +14,15 @@
             </div>
         </div>
         <div class="input-group mb-3">
-            <date-picker v-model="dateRange.end" mode="dateTime" :is24hr="true">
+            <date-picker v-model="dateRange.end" mode="dateTime" :is24hr="true" :disabled-dates="disabledDateRange">
                 <template v-slot="{ inputValue, inputEvents }">
-                    <input v-on="inputEvents" :value="inputValue" type="datetime" class="form-control" placeholder="From Date" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <input v-on="inputEvents"  
+                           :value="inputValue" 
+                           type="datetime" 
+                           class="form-control" 
+                           placeholder="From Date" 
+                           aria-label="Recipient's username" 
+                           aria-describedby="button-addon2">
                 </template>
             </date-picker>
 
@@ -26,11 +32,13 @@
                 </div>
             </div>
         </div>
-        <button v-on:click="filterClicked" type="button">Filter</button>
+        <button class="btn btn-primary" v-on:click="filterClicked" type="button">Filter</button>
     </div>
 </template>
 <script lang="js">
     import Vue from "vue";
+    import DateService from "../../services/date-service";
+
     export default Vue.component("date-range", {
         props: ["fromDate", "toDate", "minimumDate", "maximumDate"],
         data: function () {
@@ -62,6 +70,22 @@
             },
             filterClicked: function () {
                 this.$emit("filter:clicked", this.dateRange);
+            }
+        },
+        computed: {
+            disabledDateRange: function() {
+                var endDate = DateService.getDate({
+                    offSet: {
+                        mode: DateService.offSetMode.subtract,
+                        period: "days",
+                        value: 1
+                    }
+                }, this.dateRange.start);
+                console.log(endDate);
+                return {
+                    start: new Date(1970, 1, 1),
+                    end: endDate
+                }
             }
         }
     });
