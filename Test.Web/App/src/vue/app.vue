@@ -8,7 +8,7 @@
                 <p>Dashboard for Tag: {{ tag }}</p>
                 <p>Displaying data between {{ filters.fromDate | date('Do MMMM YYYY HH:mm Z') }} and {{ filters.toDate | date('Do MMMM YYYY HH:mm Z') }}</p>
             </div>
-            <div class="col-lg-12 col-xl-6 text-xl-right">
+            <div class="col-lg-12 col-xl-6 text-right">
                 <toggle-button v-on:onToggleClicked="onToggleClicked" :options="toggleButtonOptions"></toggle-button>
                 <date-range 
                             v-on:filter:clicked="onFilterClicked" 

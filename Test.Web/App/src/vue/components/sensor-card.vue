@@ -10,7 +10,7 @@
                           :sensor-id="sensorInfo.id">
             </sensor-chart>
             <div class="text-right">
-                <button v-on:click="selectSensor(sensorInfo)" class="btn btn-secondary btn-sm mt-4">View sensor dashboard</button>
+                <button v-if="!sensor_type" v-on:click="selectSensor(sensorInfo)" class="btn btn-secondary btn-sm mt-4">View sensor dashboard</button>
             </div>
         </div>
     </div>
