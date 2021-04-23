@@ -9,7 +9,7 @@
         </div>
         <div class="d-block d-sm-none text-right">
             <b-dropdown id="dropdown-1" text="Filter" class="m-md-2" right>
-                <b-dropdown-item v-for="option in button.options">{{ option.text }}</b-dropdown-item>
+                <b-dropdown-item v-on:click="onToggle(option)" v-for="option in button.options">{{ option.text }}</b-dropdown-item>
             </b-dropdown>
         </div>
     </div>
