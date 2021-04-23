@@ -19,7 +19,7 @@ const service = {
         // Create axes
         var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
         dateAxis.baseInterval = {
-            "timeUnit": "second",
+            "timeUnit": "minute",
             "count": 1
         };
         var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
