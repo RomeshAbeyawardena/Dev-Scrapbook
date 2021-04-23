@@ -2,14 +2,16 @@
 <template>
     <div class="card chart-card">
         <div class="card-body">
-            <h5 v-if="!filters.sensorId" class="card-title">{{ sensorInfo.displayName }}</h5>
+            <h5 v-if="!filters.sensorId" class="card-title"><a href="#" class="text-black-50" v-on:click="selectSensor(sensorInfo)" >{{ sensorInfo.displayName }}</a></h5>
             <p>{{sensorType | friendlyName('sensorType')}}</p>
             <sensor-chart
                           :sensor-type="sensorType"
                           :sensor-filters="filters"
                           :sensor-id="sensorInfo.id">
             </sensor-chart>
-            <button v-on:click="selectSensor(sensorInfo)" class="btn btn-secondary btn-sm mt-4">Sensor dashboard</button>
+            <div class="text-right">
+                <button v-on:click="selectSensor(sensorInfo)" class="btn btn-secondary btn-sm mt-4">View sensor dashboard</button>
+            </div>
         </div>
     </div>
 </template>
