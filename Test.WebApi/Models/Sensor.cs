@@ -12,5 +12,8 @@ namespace Test.WebApi.Models
         public string DisplayName { get; set; }
         public string SerialNumber { get; set; }
         public string Tags { get; set; }
+        public string SensorTypes { get; set; }
+
+        public IEnumerable<string> Types => SensorTypes.Split(',');
     }
 }

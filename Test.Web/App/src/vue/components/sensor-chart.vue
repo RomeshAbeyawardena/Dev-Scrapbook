@@ -32,7 +32,6 @@
         watch: {
             sensorFilters: {
                 handler: function (newValue) {
-                    console.log(newValue);
                     this.loading = true;
                     this.filters = newValue;
                     this.renderChart();

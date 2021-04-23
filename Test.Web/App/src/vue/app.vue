@@ -5,20 +5,22 @@
         </h1>
         <div class="row">
             <div class="col">
-                <p>Dashboard for Tag: {{ tag }} Showing charts from {{ filters.fromDate | date('Do MMMM YYYY HH:mm Z') }} to {{ filters.toDate | date('Do MMMM YYYY HH:mm Z') }}</p>
+                <p>Dashboard for Tag: {{ tag }}</p>
+                <p>Displaying data between {{ filters.fromDate | date('Do MMMM YYYY HH:mm Z') }} and {{ filters.toDate | date('Do MMMM YYYY HH:mm Z') }}</p>
             </div>
             <div class="col text-right">
                 <toggle-button v-on:onToggleClicked="onToggleClicked" :options="toggleButtonOptions"></toggle-button>
-                <date-range v-if="filterMode == 'Custom'"></date-range>
+                <date-range 
+                            v-on:filter:clicked="onFilterClicked" 
+                            v-if="isCustomDateSelected" 
+                            :from-date="filters.fromDate" 
+                            :to-date="filters.toDate"></date-range>
             </div>
         </div>
-        <div class="text-right">
-            
-        </div>
-        <div class="row mt-2" style="clear:both">
-            <div class="col-md-5 col-lg-3 col-xl-4" v-for="sensor in sensors">
-                <sensor-card :sensor="sensor" :sensor-filters="filters"></sensor-card>
-            </div>
+        <div class="mt-2" style="clear:both">
+            <sensor-dashboard :sensor-id="selectedSensorId" :sensors="sensors" :sensor-filters="filters">
+
+            </sensor-dashboard>
         </div>
     </div>
 </template>
@@ -34,7 +36,7 @@
     const DateFilter_Last7Days = "Last-7Days";
     const DateFilter_Last30Days = "Last-30Days";
     const DateFilter_CustomRange = "Custom";
-    const ButtonType_Primary = "primary";
+    const ButtonType_Primary = "primary"; 
     const ButtonType_Secondary = "secondary";
 
   export default Vue.extend({
@@ -42,6 +44,7 @@
       return {
           name: 'Sensors Dashboard',
           tag: 'disruptive-tech',
+          selectedSensorId: null,
           sensors: [],
           filters: {
               fromDate: new Date(),
@@ -67,20 +70,33 @@
                       return;
                   }
                   case DateFilter_Today: {
-                      this.filters.fromDate = DateService.getDate({ hour: 0, minute: 0, second: 0, millisecond: 0 });
+                      this.filters.fromDate = DateService.getDate({
+                          hour: 0,
+                          minute: 0,
+                          second: 0,
+                          millisecond: 0
+                      });
                       this.filters.toDate = DateService.getDate();
                       return;
                   }
                   case DateFilter_PreviousDay: {
                       this.filters.fromDate = DateService.getDate({
-                          offSet: { mode: DateService.offSetMode.subtract, value: 1, period: "days" },
+                          offSet: {
+                              mode: DateService.offSetMode.subtract,
+                              value: 1,
+                              period: "days"
+                          },
                           hour: 8,
                           minute: 0,
                           second: 0,
                           millisecond: 0
                       });
                       this.filters.toDate = DateService.getDate({
-                          offSet: { mode: DateService.offSetMode.subtract, value: 1, period: "days" },
+                          offSet: {
+                              mode: DateService.offSetMode.subtract,
+                              value: 1,
+                              period: "days"
+                          },
                           hour: 20,
                           minute: 0,
                           second: 0,
@@ -90,21 +106,33 @@
                   }
                   case DateFilter_Last24Hours: {
                       this.filters.fromDate = DateService.getDate({
-                          offSet: { mode: DateService.offSetMode.subtract, value: 24, period: "hours" }
+                          offSet: {
+                              mode: DateService.offSetMode.subtract,
+                              value: 24,
+                              period: "hours"
+                          }
                       });
                       this.filters.toDate = DateService.getDate();
                       return;
                   }
                   case DateFilter_Last7Days: {
                       this.filters.fromDate = DateService.getDate({
-                          offSet: { mode: DateService.offSetMode.subtract, value: 7, period: "days" }
+                          offSet: {
+                              mode: DateService.offSetMode.subtract,
+                              value: 7,
+                              period: "days"
+                          }
                       });
                       this.filters.toDate = DateService.getDate();
                       return;
                   }
                   case DateFilter_Last30Days: {
                       this.filters.fromDate = DateService.getDate({
-                          offSet: { mode: DateService.offSetMode.subtract, value: 30, period: "days" }
+                          offSet: {
+                              mode: DateService.offSetMode.subtract,
+                              value: 30,
+                              period: "days"
+                          }
                       });
                       this.filters.toDate = DateService.getDate();
                       return;
@@ -120,6 +148,16 @@
 
               option.buttonType = ButtonType_Primary;
               this.setFilter(option.value);
+          },
+          onFilterClicked: function (filter) {
+              console.log(filter);
+              this.filters.fromDate = filter.start;
+              this.filters.toDate = filter.end;
+          }
+      },
+      computed: {
+          isCustomDateSelected: function () {
+              return this.filterMode === DateFilter_CustomRange;
           }
       },
       created: function () {

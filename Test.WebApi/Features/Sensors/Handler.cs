@@ -30,7 +30,13 @@ namespace Test.WebApi.Features.Sensors
                 ? string.Empty 
                 : "[Tags] = @tags AND";
 
-            var query = $"select [Id], [DisplayName], [SerialNumber], [Tags] from [sensors].[DeviceRegistrations] where {optionalWhereQuery} [IsEnabled] = 1";
+            var baseQuery = @"SELECT [Id], [DisplayName], [SerialNumber], [Tags],
+                STUFF((SELECT ',' + [SensorId] FROM [sensors].[SensorReadings] WHERE
+                [DeviceRegistrationId] = [DeviceRegistrations].[Id]
+                GROUP BY [SensorId] FOR XML PATH('')),1,1,'') [SensorTypes]
+                FROM [sensors].[DeviceRegistrations] [DeviceRegistrations]";
+
+            var query = $"{baseQuery} where {optionalWhereQuery} [IsEnabled] = 1";
             //Console.WriteLine(query);
             var sensors = await dbConnection.QueryAsync<Models.Sensor>(query,
                 new { tags = request.Tag });
