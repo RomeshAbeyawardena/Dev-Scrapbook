@@ -17,16 +17,19 @@
     import Vue from "vue";
 
     export default Vue.component("sensor-card", {
-        props: ['sensorId', 'sensor', 'sensorFilters'],
+        props: ['sensorId', 'sensor', 'sensorFilters', 'type'],
         data: function () {
             return {
                 filters: this.sensorFilters,
-                sensorInfo: this.sensor
+                sensorInfo: this.sensor,
+                sensor_type: this.type
             }
         },
         computed: {
             sensorType: function () {
-
+                if (this.sensor_type) {
+                    return this.sensor_type;
+                }
                 if (this.sensorInfo.types.includes('temp')) {
                     return 'temp';
                 }

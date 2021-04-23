@@ -9,6 +9,7 @@
                     <div class="col-sm-12 col-md-5 col-lg-4 col-xl-3"
                          v-for="sensorType in filters.selectedSensor.types">
                         {{ sensorType | friendlyName('sensorType') }}
+                        <sensor-card :type="sensorType" :sensor="filters.selectedSensor" :sensor-filters="filters"></sensor-card>
                     </div>
                 </div>
             </div>
@@ -41,8 +42,8 @@ import Vue from "vue";
                 this.model.sensors = newValue;
             },
             sensorFilters: {
-                handler: function(newValue) {
-                    this.filters = newValue;
+                handler: function (newValue) {
+                    this.filters.sensorFilters = newValue;
                 },
                 deep: true
             },

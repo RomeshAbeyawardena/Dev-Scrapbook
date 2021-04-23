@@ -41,11 +41,16 @@
         },
         methods: {
             renderChart: function () {
+
+                var dateFilters = this.filters.sensorFilters;
                 SensorService
-                    .getSensorReadings(this.id, this.type, this.filters.fromDate, this.filters.toDate)
+                    .getSensorReadings(this.id, this.type,
+                        dateFilters.fromDate,
+                        dateFilters.toDate)
                     .then(readings => {
                         this.loading = false;
-                        window.setTimeout(() => ChartService.renderChart(this.chartId, readings), 500);
+                        window.setTimeout(() => ChartService
+                            .renderChart(this.chartId, readings), 500);
                     });
             }
         },
