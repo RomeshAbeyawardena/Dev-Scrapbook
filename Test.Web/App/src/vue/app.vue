@@ -4,11 +4,11 @@
             {{name}}
         </h1>
         <div class="row">
-            <div class="col">
+            <div class="col-lg-12 col-xl-6">
                 <p>Dashboard for Tag: {{ tag }}</p>
                 <p>Displaying data between {{ filters.fromDate | date('Do MMMM YYYY HH:mm Z') }} and {{ filters.toDate | date('Do MMMM YYYY HH:mm Z') }}</p>
             </div>
-            <div class="col text-right">
+            <div class="col-lg-12 col-xl-6 text-xl-right">
                 <toggle-button v-on:onToggleClicked="onToggleClicked" :options="toggleButtonOptions"></toggle-button>
                 <date-range 
                             v-on:filter:clicked="onFilterClicked" 
@@ -53,7 +53,7 @@
           filterMode: "Today",
           toggleButtonOptions: [
               { buttonType: ButtonType_Primary, value: DateFilter_Today, text: "Today" },
-              { buttonType: ButtonType_Secondary, value: DateFilter_PreviousDay, text: "Previous Day" },
+              { buttonType: ButtonType_Secondary, value: DateFilter_PreviousDay, text: "Previous Day", description: "This filter shows data from 8am to 8pm UTC on the previous day" },
               { buttonType: ButtonType_Secondary, value: DateFilter_Last24Hours, text: "Last 24 hours" },
               { buttonType: ButtonType_Secondary, value: DateFilter_Last7Days, text: "Last 7 days" },
               { buttonType: ButtonType_Secondary, value: DateFilter_Last30Days, text: "Last month" },

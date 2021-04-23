@@ -4,7 +4,7 @@
         <div class="card" v-if="filters.selectedSensor">
             <div class="card-body">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-12 col-sm-6 col-md-3">
                         <button class="btn btn-secondary mb-4" v-on:click="resetView">Go back to overview</button>
                     </div>
                     <div class="col text-right">
@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12 col-md-5 col-lg-4 col-xl-3"
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3"
                          v-for="sensorType in filters.selectedSensor.types">
                         <sensor-card :type="sensorType" :sensor="filters.selectedSensor" :sensor-filters="filters"></sensor-card>
                     </div>
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="row" v-if="!filters.selectedSensor">
-            <div class="col-sm-12 col-md-5 col-lg-4 col-xl-3" v-for="sensor in filteredSensors">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3" v-for="sensor in filteredSensors">
                 <sensor-card v-on:sensor:changed="onSensorChanged" :sensor="sensor" :sensor-filters="filters"></sensor-card>
             </div>
         </div>

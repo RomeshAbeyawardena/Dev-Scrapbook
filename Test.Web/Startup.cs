@@ -27,7 +27,7 @@ namespace Test.Web
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseStaticFiles();
+            app.UseStaticFiles(); 
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
