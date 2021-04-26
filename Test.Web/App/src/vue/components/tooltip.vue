@@ -3,20 +3,20 @@
        v-on:click="elementOnClick()" 
        v-b-popover.hover.top="tooltipText" 
        v-if="element.type=='pargraph'">
-        <slot></slot>we
+        <slot></slot>
     </p>
     <a :href="element.href" 
        v-on:click="elementOnClick()" 
        :class="element.class" 
        v-b-popover.hover.top="tooltipText" 
        v-else-if="element.type=='hyperlink'">
-        <slot></slot>te
+        <slot></slot>
     </a>
     <span v-on:click="elementOnClick()" 
           :class="element.class" 
           v-b-popover.hover.top="tooltipText" 
           v-else-if="element.type=='span'">
-        <slot></slot>me
+        <slot></slot>
     </span>
 </template>
 <script lang="js">

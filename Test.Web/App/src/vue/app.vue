@@ -8,7 +8,7 @@
             <p class="small mb-3">Displaying sensor for data for the dates between {{ filters.fromDate | date('Do MMMM YYYY HH:mm Z') }} and {{ filters.toDate | date('Do MMMM YYYY HH:mm Z') }}</p>
         </div>    
                 <b-row>
-                    <b-col cols="6" md="12" lg="3">
+                    <b-col cols="6" md="12" lg="3" class="mt-2">
                         <button class="btn btn-secondary">
                             <span class="fa fa-sync-alt text-light"></span>
                             <span>Refresh </span><span class="d-none d-lg-inline">Dashboard</span>
