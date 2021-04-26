@@ -41,7 +41,6 @@
             sensor: function (newValue) {
                 this.sensorInfo = newValue;
                 this.renderChart();
-                console.log(newValue);
             }
         },
         methods: {

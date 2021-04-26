@@ -22,7 +22,7 @@
                         class="btn btn-secondary btn-sm mt-4">View sensor dashboard</button>
                 <button v-if="sensor_type" 
                         v-on:click="viewSensorData(sensorInfo)" 
-                        class="btn btn-secondary btn-sm mt-4">View data</button>
+                        class="btn btn-secondary btn-sm mt-4"><span v-if="!showData">Show</span><span v-if="showData">Hide</span> data</button>
             </div>
             <sensor-data-grid v-if="sensor_type && showData" :sensor-type="this.sensorType" :sensor-readings="readings"></sensor-data-grid>
     </b-card>

@@ -22,6 +22,8 @@ const service = {
             "timeUnit": "minute",
             "count": 1
         };
+        
+
         var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 
         // Create series
@@ -32,10 +34,13 @@ const service = {
         series.name = "Temp";
 
         if (sensorType == "state") {
+
             valueAxis.min = 0;
             valueAxis.max = 1;
             valueAxis.extraMin = 0;
             valueAxis.extraMax = 0;
+            valueAxis.renderer.labels.template.disabled = true;
+            valueAxis.labelsEnabled = false;
 
             var closedRange = valueAxis.createSeriesRange(series);
             closedRange.label.disabled = false;
