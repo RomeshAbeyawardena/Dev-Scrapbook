@@ -12,13 +12,14 @@
                 </b-row>
                 <b-row>
                     <b-col cols="12" sm="6" md="4" lg="3"
-                         v-for="sensorType in filters.selectedSensor.types">
+                         v-for="sensorType in filters.selectedSensor.types"
+                         v-bind:key="sensorType">
                         <sensor-card :type="sensorType" :sensor="filters.selectedSensor" :sensor-filters="filters"></sensor-card>
                     </b-col>
                 </b-row>
         </b-card>
         <b-row v-if="!filters.selectedSensor">
-            <b-col cols="12" sm="6" md="4" lg="3" v-for="sensor in filteredSensors">
+            <b-col cols="12" sm="6" md="4" lg="3" v-for="sensor in filteredSensors" v-bind:key="sensor.id">
                 <sensor-card v-on:sensor:changed="onSensorChanged" :sensor="sensor" :sensor-filters="filters"></sensor-card>
             </b-col>
         </b-row>

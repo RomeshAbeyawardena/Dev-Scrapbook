@@ -3,7 +3,7 @@ import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
 const service = {
-    renderChart: function (elementId, jsonData) {
+    renderChart: function (elementId, jsonData, sensorType) {
 
         am4core.useTheme(am4themes_animated);
 
@@ -30,6 +30,13 @@ const service = {
         series.dataFields.valueY = "value";
         series.dataFields.dateX = "timestampUtc";
         series.name = "Temp";
+
+        if (sensorType == "state") {
+            valueAxis.min = 0;
+            valueAxis.max = 1;
+            valueAxis.extraMin = 0;
+            valueAxis.extraMax = 0;
+        }
     }
 }
 
