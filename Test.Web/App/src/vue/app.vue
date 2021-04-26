@@ -8,7 +8,7 @@
         </div>
         <b-row>
             <b-col cols="6" md="12" lg="3" class="mt-2">
-                <button class="btn btn-secondary">
+                <button v-on:click="getSensors()" class="btn btn-secondary">
                     <span class="fa fa-sync-alt text-light"></span>
                     <span>Refresh </span><span class="d-none d-lg-inline">Dashboard</span>
                 </button>
@@ -159,6 +159,13 @@
                 console.log(filter);
                 this.filters.fromDate = filter.start;
                 this.filters.toDate = filter.end;
+            },
+            getSensors: function () {
+                return SensorService
+                    .getSensors(this.tag)
+                    .then(e => {
+                        this.sensors = e;
+                    });
             }
         },
         computed: {
@@ -168,11 +175,7 @@
         },
         created: function () {
             this.setFilter(DateFilter_Today);
-            SensorService
-                .getSensors(this.tag)
-                .then(e => {
-                    this.sensors = e;
-                });
+            this.getSensors();
         }
     });
 </script>

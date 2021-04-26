@@ -14,7 +14,7 @@
             <sensor-chart v-on:sensor:readings:changed="storeSensorReadings"
                           :sensor-type="sensorType"
                           :sensor-filters="filters"
-                          :sensor-id="sensorInfo.id">
+                          :sensor="sensorInfo">
             </sensor-chart>
             <div class="text-right mb-2">
                 <button v-if="!sensor_type" 
@@ -69,6 +69,9 @@
             }
         },
         watch: {
+            sensor: function (newValue) {
+                this.sensorInfo = newValue;
+            },
             sensorFilters: {
                 handler: function(newValue) {
                     this.filters = newValue;

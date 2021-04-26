@@ -19,11 +19,11 @@
     import ChartService from '../../services/chart-service';
 
     export default Vue.component("sensor-chart", {
-        props: ['sensorId', 'sensorFilters', 'sensorType'],
+        props: ['sensor', 'sensorFilters', 'sensorType'],
         data: function () {
             return {
                 loading: true,
-                id: this.sensorId,
+                sensorInfo: this.sensor,
                 filters: this.sensorFilters,
                 type: this.sensorType,
                 chartId: null,
@@ -37,6 +37,11 @@
                     this.renderChart();
                 },
                 deep: true
+            },
+            sensor: function (newValue) {
+                this.sensorInfo = newValue;
+                this.renderChart();
+                console.log(newValue);
             }
         },
         methods: {
@@ -44,7 +49,7 @@
 
                 var dateFilters = this.filters.sensorFilters;
                 SensorService
-                    .getSensorReadings(this.id, this.type,
+                    .getSensorReadings(this.sensorInfo.id, this.type,
                         dateFilters.fromDate,
                         dateFilters.toDate)
                     .then(readings => {
