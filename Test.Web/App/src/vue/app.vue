@@ -1,21 +1,28 @@
 ﻿<template>
     <div>
         <h1>
-            {{name}}
+            <span>{{name}}</span>
         </h1>
-        <b-row>
-            <b-col lg="12" xl="6">
-                <p>Dashboard for Tag: {{ tag }}</p>
-                <p class="small mb-0">Displaying sensor for data for the dates between {{ filters.fromDate | date('Do MMMM YYYY HH:mm Z') }} and {{ filters.toDate | date('Do MMMM YYYY HH:mm Z') }}</p>
-            </b-col>
-            <b-col lg="12" xl="6" class="text-right mt-2">
-                <toggle-button v-on:onToggleClicked="onToggleClicked" :options="toggleButtonOptions"></toggle-button>
-                <date-range v-on:filter:clicked="onFilterClicked" 
-                            v-if="isCustomDateSelected" 
-                            :from-date="filters.fromDate" 
-                            :to-date="filters.toDate"></date-range>
-            </b-col>
-        </b-row>
+        <div>
+            <p>Dashboard for Tag: {{ tag }}</p>
+            <p class="small mb-2">Displaying sensor for data for the dates between {{ filters.fromDate | date('Do MMMM YYYY HH:mm Z') }} and {{ filters.toDate | date('Do MMMM YYYY HH:mm Z') }}</p>
+        </div>    
+                <b-row>
+                    <b-col>
+                        <button class="btn btn-secondary">
+                            <span class="fa fa-sync-alt text-light"></span>
+                            <span>Refresh </span><span class="d-none d-sm-inline">Dashboard</span>
+                        </button>
+                    </b-col>
+                    <b-col class="text-right">
+                        <toggle-button v-on:onToggleClicked="onToggleClicked" :options="toggleButtonOptions"></toggle-button>
+                        <date-range v-on:filter:clicked="onFilterClicked"
+                                    v-if="isCustomDateSelected"
+                                    :from-date="filters.fromDate"
+                                    :to-date="filters.toDate"></date-range>
+                    </b-col>
+                </b-row>
+            
         <div class="mt-2" style="clear:both">
             <sensor-dashboard :sensor-id="selectedSensorId" :sensors="sensors" :sensor-filters="filters">
 
