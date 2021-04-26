@@ -66,6 +66,14 @@ import Vue from "vue";
             }
         },
         computed: {
+            columns: function () {
+                var length = this.filters.selectedSensor.types.length
+                if (length < 4) {
+
+                }
+
+                return 3;
+            },
             filteredSensors: function () {
                 if (this.filters.sensorId) {
                     return this.model.sensors.filter(f => f.id == this.filters.sensorId);

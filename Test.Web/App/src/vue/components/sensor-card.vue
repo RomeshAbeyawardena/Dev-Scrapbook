@@ -5,7 +5,7 @@
                 class="card-title text-truncate">
                 <tooltip :tool-tip="sensorInfo.displayName" 
                          element-type="hyperlink" href="javascript:void(0)" 
-                         element-class="text-black-50" 
+                         element-class="text-black-50 text-truncate" 
                    v-on:click="selectSensor(sensorInfo)" >
                     {{ sensorInfo.displayName }}
                 </tooltip>

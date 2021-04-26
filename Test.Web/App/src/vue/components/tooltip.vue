@@ -7,8 +7,8 @@
     </p>
     <a :href="element.href" 
        v-on:click="elementOnClick()" 
-       :class="element.class" 
-       v-b-popover.hover.top="tooltipText" 
+       :class="elClass" 
+       v-b-popover.hover.topleft="tooltipText" 
        v-else-if="element.type=='hyperlink'">
         <slot></slot>
     </a>
@@ -46,6 +46,11 @@
                 }
 
                 this.$emit("click");
+            }
+        },
+        computed: {
+            elClass: function () {
+                return this.element.class + " d-block ";
             }
         }
     });

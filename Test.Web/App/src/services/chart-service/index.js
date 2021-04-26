@@ -22,7 +22,6 @@ const service = {
             "timeUnit": "minute",
             "count": 1
         };
-        
 
         var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 
