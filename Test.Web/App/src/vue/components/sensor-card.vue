@@ -2,7 +2,7 @@
 <template>
     <div class="card chart-card">
         <div class="card-body">
-            <h5 v-if="!filters.sensorId" class="card-title"><a href="#" class="text-black-50" v-on:click="selectSensor(sensorInfo)" >{{ sensorInfo.displayName }}</a></h5>
+            <h5 v-if="!filters.sensorId" class="card-title text-truncate" v-b-popover.hover.top="sensorInfo.displayName"><a href="#" class="text-black-50" v-on:click="selectSensor(sensorInfo)" >{{ sensorInfo.displayName }}</a></h5>
             <p>{{sensorType | friendlyName('sensorType')}}</p>
             <sensor-chart v-on:sensor:readings:changed="storeSensorReadings"
                           :sensor-type="sensorType"

@@ -6,12 +6,11 @@
         <div class="row">
             <div class="col-lg-12 col-xl-6">
                 <p>Dashboard for Tag: {{ tag }}</p>
-                <p>Displaying data between {{ filters.fromDate | date('Do MMMM YYYY HH:mm Z') }} and {{ filters.toDate | date('Do MMMM YYYY HH:mm Z') }}</p>
+                <p class="small mb-0">Displaying sensor for data for the dates between {{ filters.fromDate | date('Do MMMM YYYY HH:mm Z') }} and {{ filters.toDate | date('Do MMMM YYYY HH:mm Z') }}</p>
             </div>
-            <div class="col-lg-12 col-xl-6 text-right">
+            <div class="col-lg-12 col-xl-6 text-right mt-2">
                 <toggle-button v-on:onToggleClicked="onToggleClicked" :options="toggleButtonOptions"></toggle-button>
-                <date-range 
-                            v-on:filter:clicked="onFilterClicked" 
+                <date-range v-on:filter:clicked="onFilterClicked" 
                             v-if="isCustomDateSelected" 
                             :from-date="filters.fromDate" 
                             :to-date="filters.toDate"></date-range>
@@ -22,6 +21,7 @@
 
             </sensor-dashboard>
         </div>
+        <p class="small">All dates on this page are displayed in UTC (+00:00) time.</p>
     </div>
 </template>
 
@@ -42,7 +42,7 @@
   export default Vue.extend({
     data: function() {
       return {
-          name: 'Sensors Dashboard',
+          name: 'Disruptive Tech Sensors Dashboard',
           tag: 'disruptive-tech',
           selectedSensorId: null,
           sensors: [],

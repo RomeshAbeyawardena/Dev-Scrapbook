@@ -52,7 +52,7 @@
 
                         this.$emit("sensor:readings:changed", readings);
                         window.setTimeout(() => ChartService
-                            .renderChart(this.chartId, readings), 500);
+                            .renderChart(this.chartId, readings), 250);
                     });
             }
         },

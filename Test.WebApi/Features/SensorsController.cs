@@ -22,7 +22,7 @@ namespace Test.WebApi.Features
         [HttpGet, Route("{sensorId}/{fromDate?}/{toDate?}")]
         public Task<GetSensorReadingsFeature.Response> GetSensorReadings([FromRoute] GetSensorReadingsFeature.Query query,
             CancellationToken cancellationToken)
-        {
+        { 
             return Mediator.Send(query, cancellationToken);
         }
     }

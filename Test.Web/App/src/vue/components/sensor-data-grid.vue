@@ -8,7 +8,9 @@
         </b-table>
         <b-pagination v-model="pager.currentPage" 
                       :total-rows="readings.length"
-                      :per-page="pager.itemsPerPage"></b-pagination>
+                      :per-page="pager.itemsPerPage"
+                      hide-goto-end-buttons
+                      ></b-pagination>
     </div>
 </template>
 
