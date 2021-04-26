@@ -4,14 +4,16 @@
         <div class="card-body">
             <h5 v-if="!filters.sensorId" class="card-title"><a href="#" class="text-black-50" v-on:click="selectSensor(sensorInfo)" >{{ sensorInfo.displayName }}</a></h5>
             <p>{{sensorType | friendlyName('sensorType')}}</p>
-            <sensor-chart
+            <sensor-chart v-on:sensor:readings:changed="storeSensorReadings"
                           :sensor-type="sensorType"
                           :sensor-filters="filters"
                           :sensor-id="sensorInfo.id">
             </sensor-chart>
-            <div class="text-right">
+            <div class="text-right mb-2">
                 <button v-if="!sensor_type" v-on:click="selectSensor(sensorInfo)" class="btn btn-secondary btn-sm mt-4">View sensor dashboard</button>
+                <button v-if="sensor_type" v-on:click="viewSensorData(sensorInfo)" class="btn btn-secondary btn-sm mt-4">View data</button>
             </div>
+            <sensor-data-grid v-if="sensor_type && showData" :sensor-type="this.sensorType" :sensor-readings="readings"></sensor-data-grid>
         </div>
     </div>
 </template>
@@ -24,7 +26,9 @@
             return {
                 filters: this.sensorFilters,
                 sensorInfo: this.sensor,
-                sensor_type: this.type
+                sensor_type: this.type,
+                readings: null,
+                showData: false
             }
         },
         computed: {
@@ -43,8 +47,15 @@
             }
         },
         methods: {
+            storeSensorReadings(readings) {
+                this.readings = readings;
+            },
             selectSensor: function (sensor) {
                 this.$emit("sensor:changed", sensor);
+            },
+            viewSensorData: function (sensor) {
+                this.$emit("sensor:viewSensorData", sensor);
+                this.showData = !this.showData;
             }
         },
         watch: {

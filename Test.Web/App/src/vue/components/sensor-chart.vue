@@ -49,6 +49,8 @@
                         dateFilters.toDate)
                     .then(readings => {
                         this.loading = false;
+
+                        this.$emit("sensor:readings:changed", readings);
                         window.setTimeout(() => ChartService
                             .renderChart(this.chartId, readings), 500);
                     });
