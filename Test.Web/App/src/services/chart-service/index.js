@@ -36,6 +36,20 @@ const service = {
             valueAxis.max = 1;
             valueAxis.extraMin = 0;
             valueAxis.extraMax = 0;
+
+            var closedRange = valueAxis.createSeriesRange(series);
+            closedRange.label.disabled = false;
+            closedRange.label.text = "Closed";
+            closedRange.label.fill = am4core.color("#FF0000");
+            closedRange.value = 0
+            closedRange.endValue = 0;
+
+            var openedRange = valueAxis.createSeriesRange(series);
+            openedRange.label.disabled = false;
+            openedRange.label.text = "Opened";
+            openedRange.label.fill = am4core.color("#0c0");
+            openedRange.value = 1
+            openedRange.endValue = 1;
         }
     }
 }
