@@ -22,7 +22,7 @@
                 fields: [
                     {
                         key: "rawValue",
-                        label: "Readings",
+                        label: "Reading",
                         sortable: true
                     },
                     {
