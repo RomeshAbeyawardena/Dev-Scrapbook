@@ -18,7 +18,7 @@
                 </b-row>
         </b-card>
         <b-row v-if="!filters.selectedSensor">
-            <b-col col="12" sm="6" md="4" lg="3" v-for="sensor in filteredSensors">
+            <b-col cols="12" sm="6" md="4" lg="3" v-for="sensor in filteredSensors">
                 <sensor-card v-on:sensor:changed="onSensorChanged" :sensor="sensor" :sensor-filters="filters"></sensor-card>
             </b-col>
         </b-row>

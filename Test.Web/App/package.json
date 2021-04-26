@@ -36,6 +36,7 @@
     "moment": "2.29.1",
     "@fortawesome/fontawesome-free": "5.15.3",
     "file-loader": "6.2.0",
-    "v-calendar": "2.3.0"
+    "v-calendar": "2.3.0",
+    "ismobilejs": "1.1.1"
   }
 }

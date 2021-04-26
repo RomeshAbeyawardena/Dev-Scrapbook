@@ -5,4 +5,5 @@ require("./sensor-dashboard");
 require("./toggle-button");
 require("./date-picker");
 require("./date-range");
+require("./tooltip");
 require("./filters");

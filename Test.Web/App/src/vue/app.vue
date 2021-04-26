@@ -5,16 +5,16 @@
         </h1>
         <div>
             <p>Dashboard for Tag: {{ tag }}</p>
-            <p class="small mb-2">Displaying sensor for data for the dates between {{ filters.fromDate | date('Do MMMM YYYY HH:mm Z') }} and {{ filters.toDate | date('Do MMMM YYYY HH:mm Z') }}</p>
+            <p class="small mb-3">Displaying sensor for data for the dates between {{ filters.fromDate | date('Do MMMM YYYY HH:mm Z') }} and {{ filters.toDate | date('Do MMMM YYYY HH:mm Z') }}</p>
         </div>    
                 <b-row>
-                    <b-col cols="6" md="12" lg="6">
+                    <b-col cols="6" md="12" lg="3">
                         <button class="btn btn-secondary">
                             <span class="fa fa-sync-alt text-light"></span>
                             <span>Refresh </span><span class="d-none d-lg-inline">Dashboard</span>
                         </button>
                     </b-col>
-                    <b-col cols="6" md="12" lg="6" class="text-lg-right mt-2">
+                    <b-col cols="6" md="12" lg="9" class="text-lg-right mt-2">
                         <toggle-button v-on:onToggleClicked="onToggleClicked" :options="toggleButtonOptions"></toggle-button>
                         <date-range v-on:filter:clicked="onFilterClicked"
                                     v-if="isCustomDateSelected"

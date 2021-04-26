@@ -2,13 +2,13 @@
 <template>
     <b-card class="chart-card">
             <h5 v-if="!filters.sensorId" 
-                class="card-title text-truncate" 
-                v-b-popover.hover.top="sensorInfo.displayName">
-                <a href="#" 
-                   class="text-black-50" 
+                class="card-title text-truncate">
+                <tooltip :tool-tip="sensorInfo.displayName" 
+                         element-type="hyperlink" href="javascript:void(0)" 
+                         element-class="text-black-50" 
                    v-on:click="selectSensor(sensorInfo)" >
                     {{ sensorInfo.displayName }}
-                </a>
+                </tooltip>
             </h5>
             <p>{{sensorType | friendlyName('sensorType')}}</p>
             <sensor-chart v-on:sensor:readings:changed="storeSensorReadings"
