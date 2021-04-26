@@ -3,19 +3,19 @@
         <h1>
             {{name}}
         </h1>
-        <div class="row">
-            <div class="col-lg-12 col-xl-6">
+        <b-row>
+            <b-col lg="12" xl="6">
                 <p>Dashboard for Tag: {{ tag }}</p>
                 <p class="small mb-0">Displaying sensor for data for the dates between {{ filters.fromDate | date('Do MMMM YYYY HH:mm Z') }} and {{ filters.toDate | date('Do MMMM YYYY HH:mm Z') }}</p>
-            </div>
-            <div class="col-lg-12 col-xl-6 text-right mt-2">
+            </b-col>
+            <b-col lg="12" xl="6" class="text-right mt-2">
                 <toggle-button v-on:onToggleClicked="onToggleClicked" :options="toggleButtonOptions"></toggle-button>
                 <date-range v-on:filter:clicked="onFilterClicked" 
                             v-if="isCustomDateSelected" 
                             :from-date="filters.fromDate" 
                             :to-date="filters.toDate"></date-range>
-            </div>
-        </div>
+            </b-col>
+        </b-row>
         <div class="mt-2" style="clear:both">
             <sensor-dashboard :sensor-id="selectedSensorId" :sensors="sensors" :sensor-filters="filters">
 

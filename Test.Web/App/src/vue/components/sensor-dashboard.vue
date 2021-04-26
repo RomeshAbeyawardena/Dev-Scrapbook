@@ -1,29 +1,27 @@
 ﻿<!-- Sensor Card-->
 <template>
     <div>
-        <div class="card" v-if="filters.selectedSensor">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12 col-sm-6 col-md-3">
+        <b-card v-if="filters.selectedSensor">
+                <b-row>
+                    <b-col cols="12" sm="6" md="3">
                         <button class="btn btn-secondary mb-4" v-on:click="resetView">Go back to overview</button>
-                    </div>
-                    <div class="col text-right">
+                    </b-col>
+                    <b-col class="text-right">
                         <h5>{{ filters.selectedSensor.displayName }}</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3"
+                    </b-col>
+                </b-row>
+                <b-row>
+                    <b-col cols="12" sm="6" md="4" lg="3"
                          v-for="sensorType in filters.selectedSensor.types">
                         <sensor-card :type="sensorType" :sensor="filters.selectedSensor" :sensor-filters="filters"></sensor-card>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" v-if="!filters.selectedSensor">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3" v-for="sensor in filteredSensors">
+                    </b-col>
+                </b-row>
+        </b-card>
+        <b-row v-if="!filters.selectedSensor">
+            <b-col col="12" sm="6" md="4" lg="3" v-for="sensor in filteredSensors">
                 <sensor-card v-on:sensor:changed="onSensorChanged" :sensor="sensor" :sensor-filters="filters"></sensor-card>
-            </div>
-        </div>
+            </b-col>
+        </b-row>
     </div>
 </template>
 <script lang="js">
