@@ -27,8 +27,7 @@
             <p class="disclaimer">Displaying sensor data for the dates between 
             {{ filters.fromDate | date('Do MMMM YYYY HH:mm Z') }} 
             and {{ filters.toDate | date('Do MMMM YYYY HH:mm Z') }}</p>
-            <sensor-dashboard :sensor-id="selectedSensorId" 
-                              :sensors="sensors" :sensor-filters="filters">
+            <sensor-dashboard :sensor-id="selectedSensorId"  :sensor-filters="filters">
 
             </sensor-dashboard>
         </div>
@@ -57,7 +56,6 @@
                 name: 'Disruptive Tech Sensors Dashboard',
                 tag: 'disruptive-tech',
                 selectedSensorId: null,
-                sensors: [],
                 filters: {
                     fromDate: new Date(),
                     toDate: new Date()
@@ -167,11 +165,7 @@
                 this.filters.toDate = filter.end;
             },
             getSensors: function () {
-                return SensorService
-                    .getSensors(this.tag)
-                    .then(e => {
-                        this.sensors = e;
-                    });
+                this.$store.dispatch('getSensors', 'disruptive-tech');
             }
         },
         computed: {

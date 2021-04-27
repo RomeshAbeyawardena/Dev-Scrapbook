@@ -15,7 +15,7 @@
                 <b-col cols="12" sm="6" md="4" lg="3"
                        v-for="sensorType in filters.selectedSensor.types"
                        v-bind:key="sensorType">
-                    <sensor-card :type="sensorType" :sensor="filters.selectedSensor" :sensor-filters="filters">
+                    <sensor-card :type="sensorType" :sensor="filters.selectedSensor.id" :sensor-filters="filters">
 
                     </sensor-card>
                 </b-col>
@@ -23,7 +23,7 @@
         </b-card>
         <b-row v-if="!filters.selectedSensor" class="sensor-dashboard--body-sensor-list">
             <b-col cols="12" sm="6" md="4" xl="3" v-for="sensor in filteredSensors" v-bind:key="sensor.id">
-                <sensor-card v-on:sensor:changed="onSensorChanged" :sensor="sensor" :sensor-filters="filters">
+                <sensor-card v-on:sensor:changed="onSensorChanged" :sensor-id="sensor.id" :sensor-filters="filters">
 
                 </sensor-card>
             </b-col>
@@ -33,23 +33,17 @@
 <script lang="js">
 import Vue from "vue";
     export default Vue.component("sensor-dashboard", {
-        props: ['sensorId', 'sensors', 'sensorFilters'],
+        props: ['sensorId', 'sensorFilters'],
         data: function () {
             return {
                 filters: {
                     selectedSensor: null,
                     sensorFilters: this.sensorFilters,
                     sensorId: this.sensorId
-                },
-                model: {
-                    sensors: this.sensors
                 }
             }
         },
         watch: {
-            sensors: function (newValue) {
-                this.model.sensors = newValue;
-            },
             sensorFilters: {
                 handler: function (newValue) {
                     this.filters.sensorFilters = newValue;
@@ -71,6 +65,9 @@ import Vue from "vue";
             }
         },
         computed: {
+            sensors: function () {
+                return this.$store.getters.sensors;
+            },
             columns: function () {
                 var length = this.filters.selectedSensor.types.length
                 if (length < 4) {
@@ -81,10 +78,10 @@ import Vue from "vue";
             },
             filteredSensors: function () {
                 if (this.filters.sensorId) {
-                    return this.model.sensors.filter(f => f.id == this.filters.sensorId);
+                    return this.sensors.filter(f => f.id == this.filters.sensorId);
                 }
 
-                return this.model.sensors;
+                return this.sensors;
             }
         }
     });
