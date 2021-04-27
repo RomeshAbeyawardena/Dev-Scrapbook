@@ -11775,6 +11775,9 @@ readers do not read off random characters that represent icons */
 
 .app .app--data-list {
   clear: both; }
+  @media (min-width: 576px) {
+    .app .app--data-list .disclaimer {
+      text-align: right; } }
 
 .sensor-dashboard .sensor-dashboard--body {
   padding: 0;

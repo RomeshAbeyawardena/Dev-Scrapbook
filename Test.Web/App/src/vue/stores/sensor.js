@@ -22,25 +22,38 @@ export const SensorStore = new Vuex.Store({
             for (var sensor of sensors) {
                 state.sensors.push(sensor);
             }
+        },
+        updateSensor: function (state, sensorId, newValue) {
+            let foundItem = state.sensors.filter(a => a.id == sensorId)[0];
+            let index = state.sensors.findIndex(foundItem);
+            state.sensors.splice(index, 1)
+            state.sensors.push(newValue);
         }
     },
     actions: {
-        getSensorReading: function (context, sensorId, dateFilters) {
-            let sensor = context.getters.sensor(sensorId);
+        updateSensorReading: function (context, data) {
+            let sensor = context.getters.getSensorById(data.sensorId);
 
-            SensorService
-                .getSensorReadings(sensorId, this.type,
-                    dateFilters.fromDate,
-                    dateFilters.toDate)
-                .then(readings => {
+            var p = SensorService
+                .getSensorReadings(data.sensorId,
+                    null,
+                    data.fromDate,
+                    data.toDate);
+
+            p.then(readings => {
                     sensor.readings = readings;
+                    context.commit('updateSensor', sensor.id, sensor);
                 });
 
-            console.log(sensor);
+            return p;
+            //console.log(sensor);
         },
         getSensors: function (context, tag) {
-            SensorService.getSensors(tag)
-                .then(sensors => context.commit('updateSensors', sensors));
+            var p = SensorService.getSensors(tag);
+                
+            p.then(sensors => context.commit('updateSensors', sensors));
+
+            return p;
         }
     }
 });

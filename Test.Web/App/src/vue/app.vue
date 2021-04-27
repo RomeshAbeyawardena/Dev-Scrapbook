@@ -38,7 +38,6 @@
 
 <script lang="js">
     import Vue from "vue";
-    import SensorService from '../services/sensor-service';
     import DateService from '../services/date-service';
 
     const DateFilter_Today = "Today";
@@ -165,7 +164,7 @@
                 this.filters.toDate = filter.end;
             },
             getSensors: function () {
-                this.$store.dispatch('getSensors', 'disruptive-tech');
+                return this.$store.dispatch('getSensors', 'disruptive-tech');
             }
         },
         computed: {

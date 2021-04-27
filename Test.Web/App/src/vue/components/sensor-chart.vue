@@ -15,7 +15,6 @@
 <script lang="js">
     import Vue from "vue";
     import RandomStringGenerator from "../../services/random-string-generator";
-    import SensorService from '../../services/sensor-service';
     import ChartService from '../../services/chart-service';
 
     export default Vue.component("sensor-chart", {
@@ -44,6 +43,11 @@
                 this.renderChart();
             }
         },
+        computed: {
+            sensor: function () {
+                return this.$store.getters.getSensorById(this.chartSensorId);
+            }
+        },
         methods: {
             renderChart: function () {
                 if (this.chart || this.chart != null) {
@@ -51,16 +55,22 @@
                 }
 
                 var dateFilters = this.filters.sensorFilters;
-                SensorService
-                    .getSensorReadings(this.chartSensorId, this.type,
-                        dateFilters.fromDate,
-                        dateFilters.toDate)
-                    .then(readings => {
-                        this.loading = false;
 
-                        this.$emit("sensor:readings:changed", readings);
-                        window.setTimeout(() => this.chart = ChartService
-                            .renderChart(this.chartId, readings, this.type), 250);
+                this.$store.dispatch("updateSensorReading", {
+                    sensorId: this.chartSensorId,
+                    type: this.type,
+                    fromDate: dateFilters.fromDate,
+                    toDate: dateFilters.toDate
+                }).then(readings => {
+                    this.loading = false;
+
+                    this.$emit("sensor:readings:changed", readings);
+                    window.setTimeout(() => {
+                        this.chart = ChartService
+
+                        var sensorReadings = this.sensor.readings;
+                        chartService.renderChart(this.chartId, this.sensor.readings, this.type);
+                    }, 250);
                     });
             }
         },

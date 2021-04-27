@@ -18,6 +18,10 @@
         clear: both;
 
         .disclaimer {
+            @include media-breakpoint-up(sm) {
+                text-align:right;
+            }
+
             @extend .small;
             @extend .mb-1;
         }
