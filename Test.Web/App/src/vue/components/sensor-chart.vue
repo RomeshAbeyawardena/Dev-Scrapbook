@@ -27,6 +27,7 @@
                 filters: this.sensorFilters,
                 type: this.sensorType,
                 chartId: null,
+                chart: null
             }
         },
         watch: {
@@ -45,6 +46,9 @@
         },
         methods: {
             renderChart: function () {
+                if (this.chart || this.chart != null) {
+                    this.chart.dispose();
+                }
 
                 var dateFilters = this.filters.sensorFilters;
                 SensorService
@@ -55,7 +59,7 @@
                         this.loading = false;
 
                         this.$emit("sensor:readings:changed", readings);
-                        window.setTimeout(() => ChartService
+                        window.setTimeout(() => this.chart = ChartService
                             .renderChart(this.chartId, readings, this.type), 250);
                     });
             }
@@ -67,6 +71,9 @@
             this.$nextTick(function () {
                 this.renderChart();
             });
+        },
+        beforeDestroy: function () {
+            this.chart.dispose();
         }
     });
 </script>

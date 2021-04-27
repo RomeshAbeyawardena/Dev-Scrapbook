@@ -55,6 +55,8 @@ const service = {
             openedRange.value = 1
             openedRange.endValue = 1;
         }
+
+        return chart;
     }
 }
 
