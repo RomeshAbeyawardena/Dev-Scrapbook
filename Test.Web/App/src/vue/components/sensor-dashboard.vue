@@ -4,8 +4,8 @@
         <!-- Sensor Card-->
         <b-card v-if="filters.selectedSensor" body-class="sensor-dashboard--body">
             <b-row class="sensor-dashboard--body-header">
-                <b-col cols="12" sm="6" md="3">
-                    <button class="btn btn-secondary mb-4" v-on:click="resetView">Go back to overview</button>
+                <b-col cols="6" sm="6" md="3">
+                    <button class="btn btn-secondary mt-2 mb-4" v-on:click="resetView">Go back</button>
                 </b-col>
                 <b-col class="text-right">
                     <h5>{{ filters.selectedSensor.displayName }}</h5>
