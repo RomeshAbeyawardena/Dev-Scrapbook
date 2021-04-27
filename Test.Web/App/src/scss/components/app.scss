@@ -1,0 +1,25 @@
+﻿.app {
+    .app--controls {
+        .app--controls-refresh,
+        .app--controls-filters {
+            @extend .mt-2;
+        }
+
+        .app--controls-refresh {
+        }
+
+        .app--controls-filters {
+            @extend .text-right;
+        }
+    }
+
+    .app--data-list {
+        @extend .mt-2;
+        clear: both;
+
+        .disclaimer {
+            @extend .small;
+            @extend .mb-1;
+        }
+    }
+}

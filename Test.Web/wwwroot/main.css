@@ -347,7 +347,8 @@ hr {
   border-top: 1px solid rgba(0, 0, 0, 0.1); }
 
 small,
-.small {
+.small,
+.app .app--data-list .disclaimer {
   font-size: 80%;
   font-weight: 400; }
 
@@ -3347,7 +3348,7 @@ input[type="button"].btn-block {
   min-height: 1px;
   padding: 1.25rem; }
 
-.card-title {
+.card-title, .sensor-card .sensor-card--body .sensor-card--title {
   margin-bottom: 0.75rem; }
 
 .card-subtitle {
@@ -5618,7 +5619,7 @@ button.bg-dark:focus {
 .mx-1 {
   margin-right: 0.25rem !important; }
 
-.mb-1,
+.mb-1, .app .app--data-list .disclaimer,
 .my-1 {
   margin-bottom: 0.25rem !important; }
 
@@ -5629,7 +5630,8 @@ button.bg-dark:focus {
 .m-2 {
   margin: 0.5rem !important; }
 
-.mt-2,
+.mt-2, .app .app--controls .app--controls-refresh,
+.app .app--controls .app--controls-filters, .app .app--data-list,
 .my-2 {
   margin-top: 0.5rem !important; }
 
@@ -5637,7 +5639,7 @@ button.bg-dark:focus {
 .mx-2 {
   margin-right: 0.5rem !important; }
 
-.mb-2,
+.mb-2, .sensor-card .sensor-card-controls,
 .my-2 {
   margin-bottom: 0.5rem !important; }
 
@@ -6969,7 +6971,7 @@ button.bg-dark:focus {
 .text-nowrap {
   white-space: nowrap !important; }
 
-.text-truncate {
+.text-truncate, .sensor-card .sensor-card--body .sensor-card--title {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; }
@@ -6977,7 +6979,8 @@ button.bg-dark:focus {
 .text-left {
   text-align: left !important; }
 
-.text-right {
+.text-right,
+.app .app--controls .app--controls-filters, .sensor-card .sensor-card-controls {
   text-align: right !important; }
 
 .text-center {
@@ -7093,7 +7096,7 @@ a.text-light:hover, a.text-light:focus {
 a.text-dark:hover, a.text-dark:focus {
   color: #121416 !important; }
 
-.text-body {
+.text-body, .sensor-card .sensor-card--body .sensor-card--title a.sensor-card--title {
   color: #212529 !important; }
 
 .text-muted {
@@ -11770,6 +11773,40 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
 
-.chart-card {
-  margin-bottom: 1rem; }
+.app .app--data-list {
+  clear: both; }
+
+.sensor-dashboard .sensor-dashboard--body {
+  padding: 0;
+  margin: 0; }
+  @media (min-width: 768px) {
+    .sensor-dashboard .sensor-dashboard--body {
+      padding: 0.5rem; } }
+
+.sensor-dashboard .sensor-dashboard--body-header {
+  padding: 0;
+  margin: 0; }
+  @media (min-width: 768px) {
+    .sensor-dashboard .sensor-dashboard--body-header {
+      padding: 0.5rem; } }
+
+.sensor-dashboard .sensor-dashboard--body-sensor-list {
+  padding: 0;
+  margin: 0; }
+  @media (min-width: 768px) {
+    .sensor-dashboard .sensor-dashboard--body-sensor-list {
+      padding: 0.5rem; } }
+
+.sensor-card {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
+  @media (min-width: 576px) {
+    .sensor-card {
+      margin-bottom: 1rem;
+      border: 1px solid rgba(0, 0, 0, 0.125); } }
+
+@media (min-width: 768px) {
+  .chart-card {
+    margin-bottom: 1.5rem; } }
 

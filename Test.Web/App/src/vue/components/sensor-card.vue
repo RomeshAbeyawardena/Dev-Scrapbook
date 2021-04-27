@@ -1,11 +1,11 @@
 ﻿<!-- Sensor Card-->
 <template>
-    <b-card class="chart-card">
+    <b-card class="sensor-card" body-class="sensor-card--body">
             <h5 v-if="!filters.sensorId" 
-                class="card-title text-truncate">
+                class="sensor-card--title">
                 <tooltip :tool-tip="sensorInfo.displayName" 
                          element-type="hyperlink" href="javascript:void(0)" 
-                         element-class="text-black-50 text-truncate" 
+                         element-class="sensor-card--title" 
                    v-on:click="selectSensor(sensorInfo)" >
                     {{ sensorInfo.displayName }}
                 </tooltip>
@@ -16,13 +16,16 @@
                           :sensor-filters="filters"
                           :sensor="sensorInfo">
             </sensor-chart>
-            <div class="text-right mb-2">
+            <div class="sensor-card-controls">
                 <button v-if="!sensor_type" 
                         v-on:click="selectSensor(sensorInfo)" 
                         class="btn btn-secondary btn-sm mt-4">View sensor dashboard</button>
                 <button v-if="sensor_type" 
                         v-on:click="viewSensorData(sensorInfo)" 
-                        class="btn btn-secondary btn-sm mt-4"><span v-if="!showData">Show</span><span v-if="showData">Hide</span> data</button>
+                        class="btn btn-secondary btn-sm mt-4">
+                    <span v-if="!showData">Show</span>
+                    <span v-if="showData">Hide</span> data
+                </button>
             </div>
             <sensor-data-grid v-if="sensor_type && showData" :sensor-type="this.sensorType" :sensor-readings="readings"></sensor-data-grid>
     </b-card>

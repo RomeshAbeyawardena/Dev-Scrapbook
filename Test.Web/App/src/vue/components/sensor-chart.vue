@@ -1,6 +1,6 @@
 ﻿<!-- Sensor Chart-->
 <template>
-    <div>
+    <div class="sensor-chart">
         <div v-if="loading" class="text-center">
             <div class="spinner-border text-primary" role="status">
                 <span class="sr-only">Loading...</span>

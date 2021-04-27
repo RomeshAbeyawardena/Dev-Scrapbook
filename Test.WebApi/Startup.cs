@@ -40,7 +40,9 @@ namespace Test.WebApi
             }
 
             app.UseCors(poliy => poliy
-                .WithOrigins("http://localhost:5200")
+                .WithOrigins(
+                    "http://localhost:5200", 
+                    "https://localhost:5201/")
                 .AllowAnyHeader()
                 .AllowAnyMethod()
             );

@@ -1,0 +1,8 @@
+﻿@mixin reset-layout() {
+    padding: 0;
+    margin: 0;
+}
+
+@mixin reset-border() {
+    border: 0;
+}

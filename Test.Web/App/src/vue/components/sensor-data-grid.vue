@@ -1,5 +1,5 @@
 ﻿<template>
-    <div>
+    <div class="sensor-data-grid">
         <b-table :current-page="pager.currentPage" 
                  :per-page="pager.itemsPerPage" striped hover :fields="fields" :items="readings">
             <template #cell(timestampUtc)="data">

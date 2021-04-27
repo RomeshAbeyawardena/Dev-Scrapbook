@@ -1,26 +1,31 @@
 ﻿<!-- Sensor Card-->
 <template>
-    <div>
-        <b-card v-if="filters.selectedSensor">
-                <b-row>
-                    <b-col cols="12" sm="6" md="3">
-                        <button class="btn btn-secondary mb-4" v-on:click="resetView">Go back to overview</button>
-                    </b-col>
-                    <b-col class="text-right">
-                        <h5>{{ filters.selectedSensor.displayName }}</h5>
-                    </b-col>
-                </b-row>
-                <b-row>
-                    <b-col cols="12" sm="6" md="4" lg="3"
-                         v-for="sensorType in filters.selectedSensor.types"
-                         v-bind:key="sensorType">
-                        <sensor-card :type="sensorType" :sensor="filters.selectedSensor" :sensor-filters="filters"></sensor-card>
-                    </b-col>
-                </b-row>
+    <div class="sensor-dashboard">
+        <!-- Sensor Card-->
+        <b-card v-if="filters.selectedSensor" body-class="sensor-dashboard--body">
+            <b-row class="sensor-dashboard--body-header">
+                <b-col cols="12" sm="6" md="3">
+                    <button class="btn btn-secondary mb-4" v-on:click="resetView">Go back to overview</button>
+                </b-col>
+                <b-col class="text-right">
+                    <h5>{{ filters.selectedSensor.displayName }}</h5>
+                </b-col>
+            </b-row>
+            <b-row class="sensor-dashboard--body-sensor-list">
+                <b-col cols="12" sm="6" md="4" lg="3"
+                       v-for="sensorType in filters.selectedSensor.types"
+                       v-bind:key="sensorType">
+                    <sensor-card :type="sensorType" :sensor="filters.selectedSensor" :sensor-filters="filters">
+
+                    </sensor-card>
+                </b-col>
+            </b-row>
         </b-card>
-        <b-row v-if="!filters.selectedSensor">
-            <b-col cols="12" sm="6" md="4" lg="3" v-for="sensor in filteredSensors" v-bind:key="sensor.id">
-                <sensor-card v-on:sensor:changed="onSensorChanged" :sensor="sensor" :sensor-filters="filters"></sensor-card>
+        <b-row v-if="!filters.selectedSensor" class="sensor-dashboard--body-sensor-list">
+            <b-col cols="12" sm="6" md="4" xl="3" v-for="sensor in filteredSensors" v-bind:key="sensor.id">
+                <sensor-card v-on:sensor:changed="onSensorChanged" :sensor="sensor" :sensor-filters="filters">
+
+                </sensor-card>
             </b-col>
         </b-row>
     </div>

@@ -1,5 +1,5 @@
 ﻿<template>
-    <div>
+    <div class="toggle-button">
         <div class="btn-group d-none d-md-block" role="group" aria-label="Basic example">
             <button  v-for="option in button.options" 
                     v-b-popover.hover.top="option.description"

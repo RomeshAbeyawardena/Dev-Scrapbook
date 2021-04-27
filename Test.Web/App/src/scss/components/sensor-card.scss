@@ -1,0 +1,29 @@
+﻿@import '../mixins/utilities.scss';
+
+.sensor-card {
+    @include media-breakpoint-up(sm) {
+        margin-bottom: 1rem;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+    }
+
+    border-radius:0;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+
+    .sensor-card--body {
+
+        .sensor-card--title {
+            @extend .card-title;
+            @extend .text-truncate;
+
+            a.sensor-card--title {
+                @extend .text-body;
+            }
+        }
+    }
+
+    .sensor-card-controls {
+        @extend .text-right;
+        @extend .mb-2;
+    }
+}

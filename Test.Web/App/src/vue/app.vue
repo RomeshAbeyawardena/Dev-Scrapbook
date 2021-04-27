@@ -1,33 +1,39 @@
 ﻿<template>
-    <div>
+    <div class="app">
         <h1>
             <span>{{name}}</span>
         </h1>
         <div>
             <p>Dashboard for Tag: {{ tag }}</p>
         </div>
-        <b-row>
-            <b-col cols="6" md="12" lg="3" class="mt-2">
+        <b-row class="app--controls">
+            <b-col cols="6" md="12" lg="3" class="app--controls-refresh">
                 <button v-on:click="getSensors()" class="btn btn-secondary">
                     <span class="fa fa-sync-alt text-light"></span>
                     <span>Refresh </span><span class="d-none d-lg-inline">Dashboard</span>
                 </button>
             </b-col>
-            <b-col cols="6" md="12" lg="9" class="text-lg-right mt-2">
-                <toggle-button v-on:onToggleClicked="onToggleClicked" :options="toggleButtonOptions"></toggle-button>
+            <b-col cols="6" md="12" lg="9" class="app--controls-filters">
+                <toggle-button v-on:onToggleClicked="onToggleClicked" :options="toggleButtonOptions">
+
+                </toggle-button>
                 <date-range v-on:filter:clicked="onFilterClicked"
                             v-if="isCustomDateSelected"
                             :from-date="filters.fromDate"
                             :to-date="filters.toDate"></date-range>
             </b-col>
         </b-row>
-        <div class="mt-2" style="clear:both">
-            <p class="small mb-1">Displaying sensor data for the dates between {{ filters.fromDate | date('Do MMMM YYYY HH:mm Z') }} and {{ filters.toDate | date('Do MMMM YYYY HH:mm Z') }}</p>
-            <sensor-dashboard :sensor-id="selectedSensorId" :sensors="sensors" :sensor-filters="filters">
+        <div class="app--data-list">
+            <p class="disclaimer">Displaying sensor data for the dates between 
+            {{ filters.fromDate | date('Do MMMM YYYY HH:mm Z') }} 
+            and {{ filters.toDate | date('Do MMMM YYYY HH:mm Z') }}</p>
+            <sensor-dashboard :sensor-id="selectedSensorId" 
+                              :sensors="sensors" :sensor-filters="filters">
 
             </sensor-dashboard>
         </div>
-        <p class="small">All dates on this page are displayed in UTC time (+00:00), unless otherwise specified.</p>
+        <p class="small">All dates on this page are displayed in UTC time (+00:00), 
+        unless otherwise specified.</p>
     </div>
 </template>
 
