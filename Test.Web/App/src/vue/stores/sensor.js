@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export const SensorStore = new Vuex.Store({
     state: {
         sensors: [],
+        isDisplayingHistoricData: false,
         lastUpdatedTimestampUtc: null
     },
     getters: {
@@ -35,6 +36,25 @@ export const SensorStore = new Vuex.Store({
         }
     },
     actions: {
+        appendSensorReadings: function (context, data) {
+            console.log(data);
+            let sensor = context.getters.getSensorById(data.sensorId);
+
+            var p = SensorService
+                .getSensorReadings(data.sensorId,
+                    null,
+                    data.fromDate,
+                    data.toDate);
+
+            p.then(readings => {
+                for (var reading of readings) {
+                    sensor.readings.push(reading);
+                }
+                
+                context.commit("updateLastUpdatedTimestamp", data.toDate)
+                context.commit('updateSensor', sensor.id, sensor);
+            });
+        },
         updateSensorReading: function (context, data) {
             let sensor = context.getters.getSensorById(data.sensorId);
 

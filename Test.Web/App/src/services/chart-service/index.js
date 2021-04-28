@@ -86,6 +86,9 @@ const service = {
         }
 
         return chart;
+    },
+    updateChartData: function (chart, data) {
+        chart.data = data;
     }
 }
 

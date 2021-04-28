@@ -62,11 +62,30 @@
                 filterMode: "Today",
                 toggleButtonOptions: [
                     { buttonType: ButtonType_Primary, value: DateFilter_Today, text: "Today" },
-                    { buttonType: ButtonType_Secondary, value: DateFilter_PreviousDay, text: "Previous Day", description: "This filter shows data from 8am to 8pm UTC on the previous day" },
-                    { buttonType: ButtonType_Secondary, value: DateFilter_Last24Hours, text: "Last 24 hours" },
-                    { buttonType: ButtonType_Secondary, value: DateFilter_Last7Days, text: "Last 7 days" },
-                    { buttonType: ButtonType_Secondary, value: DateFilter_Last30Days, text: "Last month" },
-                    { buttonType: ButtonType_Secondary, value: DateFilter_CustomRange, text: "Custom" }]
+                    {
+                        buttonType: ButtonType_Secondary,
+                        value: DateFilter_PreviousDay,
+                        text: "Previous Day",
+                        description: "This filter shows data from 8am to 8pm UTC on the previous day"
+                    },
+                    {
+                        buttonType: ButtonType_Secondary,
+                        value: DateFilter_Last24Hours, text: "Last 24 hours"
+                    },
+                    {
+                        buttonType: ButtonType_Secondary,
+                        value: DateFilter_Last7Days, text: "Last 7 days"
+                    },
+                    {
+                        buttonType: ButtonType_Secondary,
+                        value: DateFilter_Last30Days,
+                        text: "Last month"
+                    },
+                    {
+                        buttonType: ButtonType_Secondary,
+                        value: DateFilter_CustomRange,
+                        text: "Custom"
+                    }]
             }
         },
         methods: {
@@ -167,7 +186,16 @@
                 return this.$store.dispatch('getSensors', 'disruptive-tech');
             },
             updateSensorData: function (data) {
-                console.log(data)
+
+                let fromDate = new Date(data.timestampUtc);
+                let nowDate = new Date();
+                let payload = {
+                    sensorId: data.sensorId,
+                    fromDate: fromDate,
+                    toDate: nowDate
+                };
+
+                this.$store.dispatch('appendSensorReadings', payload);
             }
         },
         computed: {
