@@ -65,10 +65,8 @@
                     this.loading = false;
 
                     window.setTimeout(() => {
-                        this.chart = ChartService
-
                         var sensorReadings = this.sensor.readings.filter(a => a.type == this.type);
-                        ChartService.renderChart(this.chartId, sensorReadings, this.type);
+                        this.chart = ChartService.renderChart(this.chartId, sensorReadings, this.type);
                     }, 250);
                     });
             }
@@ -82,7 +80,9 @@
             });
         },
         beforeDestroy: function () {
-            this.chart.dispose();
+            if (this.chart) {
+                this.chart.dispose();
+            }
         }
     });
 </script>

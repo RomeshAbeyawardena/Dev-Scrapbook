@@ -18,7 +18,7 @@
     import Vue from "vue";
 
     export default Vue.component("sensor-data-grid", {
-        props: ['sensorReadings', 'sensorType'],
+        props: ['sensorId', 'sensorType'],
         data: function () {
             return {
                 fields: [
@@ -38,13 +38,21 @@
                     itemsPerPage: 10,
                 },
                 loading: true,
-                readings: this.sensorReadings,
+                id: this.sensorId,
                 type: this.sensorType
             }
         },
+        computed: {
+            readings: function () {
+                return this.$store.getters
+                    .getSensorById(this.id)
+                    .readings
+                    .filter(a => a.type == this.type);
+            }
+        },
         watch: {
-            sensorReadings: function (newValue) {
-                this.readings = newValue;
+            sensorId: function (newValue) {
+                this.id = newValue;
             }
         }
     });

@@ -27,8 +27,9 @@
                     <span v-if="showData">Hide</span> data
                 </button>
             </div>
-            <sensor-data-grid v-if="sensor_type && showData" :sensor-type="this.sensorType" :sensor-readings="readings">
-
+            <sensor-data-grid v-if="sensor_type && showData" 
+                              :sensor-id="sensor.id" 
+                              :sensor-type="this.sensorType">
             </sensor-data-grid>
     </b-card>
 </template>
