@@ -64,7 +64,6 @@
                 }).then(readings => {
                     this.loading = false;
 
-                    this.$emit("sensor:readings:changed", readings);
                     window.setTimeout(() => {
                         this.chart = ChartService
 
