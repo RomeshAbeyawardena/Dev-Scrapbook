@@ -7,6 +7,18 @@
             padding: $half-padding;
         }
 
+        .sensor-dashboard--body-sensor-list {
+            .col-12 {
+                .sensor-card {
+                    &:first-child {
+                        background-color: red;
+                    }
+                }
+
+                background-color: green;
+            }
+        }
+
         @include reset-layout();
     }
 
@@ -21,6 +33,18 @@
     .sensor-dashboard--body-sensor-list {
         @include media-breakpoint-up(md) {
             padding: 0.5rem;
+        }
+
+        .col-12 {
+            &:first-child > .sensor-card {
+                margin-top: 1rem;
+                padding-top: 1rem;
+                border-top: $bootstrap-border-grey;
+
+                @include media-breakpoint-up(md) {
+                    margin-top: 0;
+                }
+            }
         }
 
         @include reset-layout();

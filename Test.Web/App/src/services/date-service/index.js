@@ -5,6 +5,18 @@ const service = {
         add: "add",
         subtract: "subtract"
     },
+    formatDate: function (date, args) {
+        var dt = new Moment(date);
+
+        if (args.condition) {
+            if (args.condition(date)) {
+                return dt.format(args.formatIfConditionIsTrue);
+            }
+            else dt.format(args.formatIfConditionIsFalse ?? args.format);
+        }
+
+        return dt.format(args.format);
+    },
     getDate: function(args, date) {
 
         if (!date)

@@ -11785,6 +11785,10 @@ readers do not read off random characters that represent icons */
   @media (min-width: 768px) {
     .sensor-dashboard .sensor-dashboard--body {
       padding: 0.5rem; } }
+  .sensor-dashboard .sensor-dashboard--body .sensor-dashboard--body-sensor-list .col-12 {
+    background-color: green; }
+    .sensor-dashboard .sensor-dashboard--body .sensor-dashboard--body-sensor-list .col-12 .sensor-card:first-child {
+      background-color: red; }
 
 .sensor-dashboard .sensor-dashboard--body-header {
   padding: 0;
@@ -11799,6 +11803,13 @@ readers do not read off random characters that represent icons */
   @media (min-width: 768px) {
     .sensor-dashboard .sensor-dashboard--body-sensor-list {
       padding: 0.5rem; } }
+  .sensor-dashboard .sensor-dashboard--body-sensor-list .col-12:first-child > .sensor-card {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.125); }
+    @media (min-width: 768px) {
+      .sensor-dashboard .sensor-dashboard--body-sensor-list .col-12:first-child > .sensor-card {
+        margin-top: 0; } }
 
 .sensor-card {
   margin-bottom: 1rem;

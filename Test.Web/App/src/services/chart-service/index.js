@@ -1,11 +1,39 @@
 ﻿import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+import * as am4plugins_timeline from "@amcharts/amcharts4/plugins/timeline";
+import DateService from '../date-service';
+
+am4core.useTheme(am4themes_animated);
 
 const service = {
-    renderChart: function (elementId, jsonData, sensorType) {
+    renderTimelineChart: function (elementId, jsonData, sensorType) {
+        var chart = am4core.create(elementId, am4plugins_timeline.CurveChart); 
+        chart.data = jsonData; 
 
-        am4core.useTheme(am4themes_animated);
+        var date = new Date()
+
+        for (var i of jsonData) {
+
+            i.timestampUtc = DateService.formatDate(i.timestampUtc, {
+                format: "HH:mm:ss"
+            });
+        }
+
+        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "timestampUtc";
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+        var series = chart.series.push(new am4charts.CurvedColumnSeries());
+        series.dataFields.valueY = "value";
+        series.dataFields.categoryX = "timestampUtc";
+        series.columns.template.fillOpacity = 0.5;
+        series.columns.template.strokeWidth = 2;
+        series.strokeWidth = 3;
+
+        return chart;
+    },
+    renderChart: function (elementId, jsonData, sensorType) {
 
         var chart = am4core.create(elementId, am4charts.XYChart);
         chart.cursor = new am4charts.XYCursor();
@@ -34,6 +62,7 @@ const service = {
 
         if (sensorType == "state") {
 
+            //return this.renderTimelineChart(elementId, jsonData, sensorType);
             valueAxis.min = 0;
             valueAxis.max = 1;
             valueAxis.extraMin = 0;

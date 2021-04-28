@@ -23,7 +23,7 @@
             return {
                 fields: [
                     {
-                        key: "rawValue",
+                        key: "value",
                         label: "Reading",
                         sortable: true
                     },
