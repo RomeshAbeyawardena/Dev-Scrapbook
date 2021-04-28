@@ -39,7 +39,7 @@
 <script lang="js">
     import Vue from "vue";
     import DateService from '../services/date-service';
-
+    import EventService from '../services/event-service';
     const DateFilter_Today = "Today";
     const DateFilter_PreviousDay = "PreviousDay";
     const DateFilter_Last24Hours = "Last-24Hours";
@@ -165,6 +165,9 @@
             },
             getSensors: function () {
                 return this.$store.dispatch('getSensors', 'disruptive-tech');
+            },
+            updateSensorData: function (data) {
+                console.log(data)
             }
         },
         computed: {
@@ -173,8 +176,12 @@
             }
         },
         created: function () {
+            EventService.connect("GetSensorUpdate", data => this.updateSensorData(data));
             this.setFilter(DateFilter_Today);
             this.getSensors();
+        },
+        onBeforeDestroy: function () {
+            EventService.disconnect();
         }
     });
 </script>

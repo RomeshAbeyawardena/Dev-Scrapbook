@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Test.WebApi.Hubs;
 
 namespace Test.WebApi
 {
@@ -24,6 +25,10 @@ namespace Test.WebApi
                 .AddTransient<IDbConnection>(a => new SqlConnection(GetApplicationSettings(a).DefaultConnectionString))
                 .AddMediatR(typeof(Startup).Assembly)
                 .AddControllers();
+
+            services
+                .AddCors()
+                .AddSignalR();
         } 
 
         public static ApplicationSettings GetApplicationSettings(IServiceProvider serviceProvider)
@@ -42,15 +47,18 @@ namespace Test.WebApi
             app.UseCors(poliy => poliy
                 .WithOrigins(
                     "http://localhost:5200", 
-                    "https://localhost:5201/")
+                    "https://localhost:5201")
                 .AllowAnyHeader()
                 .AllowAnyMethod()
+                .AllowCredentials()
             );
-
+            
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints
+                    .MapHub<SensorHub>("/sensorhub");
                 endpoints.MapControllers();
             });
         }

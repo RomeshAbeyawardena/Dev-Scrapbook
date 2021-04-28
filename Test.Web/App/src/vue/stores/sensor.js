@@ -5,7 +5,8 @@ Vue.use(Vuex);
 
 export const SensorStore = new Vuex.Store({
     state: {
-        sensors: []
+        sensors: [],
+        lastUpdatedTimestampUtc: null
     },
     getters: {
         sensors: function (state) {
@@ -16,6 +17,9 @@ export const SensorStore = new Vuex.Store({
         }
     },
     mutations: {
+        updateLastUpdatedTimestamp: function (state, newDate) {
+            state.lastUpdatedTimestampUtc = newDate;
+        },
         updateSensors: function (state, sensors) {
             //
             state.sensors.length = 0;
@@ -41,7 +45,8 @@ export const SensorStore = new Vuex.Store({
                     data.toDate);
 
             p.then(readings => {
-                    sensor.readings = readings;
+                sensor.readings = readings;
+                    context.commit("updateLastUpdatedTimestamp", data.toDate)
                     context.commit('updateSensor', sensor.id, sensor);
                 });
 
