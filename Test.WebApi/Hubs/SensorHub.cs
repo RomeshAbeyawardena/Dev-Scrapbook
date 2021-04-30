@@ -24,7 +24,7 @@ namespace Test.WebApi.Hubs
                 sensorUpdateInfo.SensorId, 
                 sensorUpdateInfo.TimestampUtc,
                 sensorUpdateInfo.Tags);
-
+            //Get Sensor update notification
             await Clients.AllExcept(Context.ConnectionId)
                 .SendAsync(GetSensorUpdate, sensorUpdateInfo);
         }

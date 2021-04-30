@@ -27,8 +27,8 @@
             <p class="disclaimer">Displaying sensor data for the dates between 
             {{ filters.fromDate | date('Do MMMM YYYY HH:mm Z') }} 
             and {{ filters.toDate | date('Do MMMM YYYY HH:mm Z') }}</p>
-            <sensor-dashboard :sensor-id="selectedSensorId"  :sensor-filters="filters">
-
+            <sensor-dashboard :sensor-id="selectedSensorId" :sensor-filters="filters">
+                
             </sensor-dashboard>
         </div>
         <p class="small">All dates on this page are displayed in UTC time (+00:00), 
@@ -203,7 +203,7 @@
                 return this.filterMode === DateFilter_CustomRange;
             }
         },
-        created: function () {
+        created: function () {//Get Updated Sensor notification
             EventService.connect("GetSensorUpdate", data => this.updateSensorData(data));
             this.setFilter(DateFilter_Today);
             this.getSensors();

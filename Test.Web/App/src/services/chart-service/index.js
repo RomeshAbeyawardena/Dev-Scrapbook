@@ -37,21 +37,41 @@ const service = {
 
         var chart = am4core.create(elementId, am4charts.XYChart);
         chart.cursor = new am4charts.XYCursor();
-        for (var i of jsonData) {
-            i.timestampUtc = new Date(i.timestampUtc);
-        }
-
+        
         // Add data
         chart.data = jsonData; //[{
+        chart.scrollbarX = new am4core.Scrollbar();
+        chart.scrollbarY = new am4core.Scrollbar();
 
         // Create axes
         var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+        dateAxis.renderer.grid.template.location = 0;
+        dateAxis.renderer.minGridDistance = 40;
         dateAxis.baseInterval = {
             "timeUnit": "minute",
-            "count": 1
+            "count": 15
         };
 
         var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+        // Zoom events
+        valueAxis.events.on("startchanged", valueAxisZoomed);
+        valueAxis.events.on("endchanged", valueAxisZoomed);
+
+        function valueAxisZoomed(ev) {
+            var start = ev.target.minZoomed;
+            var end = ev.target.maxZoomed;
+            console.log("New range: " + start + " -- " + end);
+        }
+
+        dateAxis.events.on("startchanged", dateAxisChanged);
+        dateAxis.events.on("endchanged", dateAxisChanged);
+
+        function dateAxisChanged(ev) {
+            var start = new Date(ev.target.minZoomed);
+            var end = new Date(ev.target.maxZoomed);
+            console.log("New range: " + start + " -- " + end);
+        }
 
         // Create series
         var series = chart.series.push(new am4charts.LineSeries());
@@ -88,7 +108,8 @@ const service = {
         return chart;
     },
     updateChartData: function (chart, data) {
-        chart.data = data;
+        data.forEach(value => chart.data.push(value));
+        //  chart.data = data;
     }
 }
 

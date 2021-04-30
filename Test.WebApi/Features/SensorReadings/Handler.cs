@@ -42,7 +42,7 @@ namespace Test.WebApi.Features.SensorReadings
                         ? toDateQuery + " AND "
                         : string.Empty;
 
-            var query = $"select [DeviceRegistrationId] as [DeviceId], [SensorId] as [Type], [TimestampUtc], [RawValue] from [sensors].[SensorReadings] where {whereClause} [DeviceRegistrationId] = @deviceId "; 
+            var query = $"select [DeviceRegistrationId] as [DeviceId], [SensorId] as [Type], [TimestampUtc], [Value] [RawValue] from [sensors].[SensorReadings] where {whereClause} [DeviceRegistrationId] = @deviceId "; 
             //Console.WriteLine("Query: {0}\r\nFrom Date: {1}\r\nTo Date: {2}\r\n", query, request.FromDate, request.ToDate);
             var sensorReadings = await dbConnection.QueryAsync<Models.SensorReading>(query,
                 new { deviceId = request.SensorId, fromDate = request.FromDate?.UtcDateTime, toDate = request.ToDate?.UtcDateTime });

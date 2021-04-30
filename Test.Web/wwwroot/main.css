@@ -11815,6 +11815,8 @@ readers do not read off random characters that represent icons */
   @media (min-width: 576px) {
     .sensor-card {
       border: 1px solid rgba(0, 0, 0, 0.125); } }
+  .sensor-card .chart {
+    min-height: 25rem; }
   .sensor-card .sensor-card--body {
     padding: 0; }
     @media (min-width: 576px) {

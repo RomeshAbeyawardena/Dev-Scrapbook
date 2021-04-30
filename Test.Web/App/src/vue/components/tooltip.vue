@@ -12,9 +12,9 @@
        v-else-if="element.type=='hyperlink'">
         <slot></slot>
     </a>
-    <span v-on:click="elementOnClick()" 
-          :class="element.class" 
-          v-b-popover.hover.top="tooltipText" 
+    <span v-on:click="elementOnClick()"
+          :class="element.class"
+          v-b-popover.hover.top="tooltipText"
           v-else-if="element.type=='span'">
         <slot></slot>
     </span>
